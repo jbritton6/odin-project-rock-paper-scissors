@@ -37,4 +37,33 @@ function playerPlay() {
 
 }
 
-console.log(playerPlay());
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return "It's a tie!";
+    }
+
+    if (playerSelection === "Rock" && computerSelection === "Paper") {
+        return "You Lose! Paper beats Rock!";
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+        return "You Win! Rock beats Scissors!";
+    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+        return "You Win! Paper beats Rock!";
+    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+        return "You Lose! Scissors beats Paper!";
+    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+        return "You Lose! Rock beats Scissors!";
+    } else {
+        return "You Win! Scissors beats Paper!";
+    }
+}
+
+console.log(playRound("Rock", "Rock"));
+console.log(playRound("Rock", "Paper"));
+console.log(playRound("Rock", "Scissors"));
+console.log(playRound("Paper", "Rock"));
+console.log(playRound("Paper", "Paper"));
+console.log(playRound("Paper", "Scissors"));
+console.log(playRound("Scissors", "Rock"));
+console.log(playRound("Scissors", "Paper"));
+console.log(playRound("Scissors", "Scissors"));
