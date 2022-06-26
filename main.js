@@ -1,6 +1,14 @@
-game();
+// game();
 
+const btnRock = document.querySelector("#rock");
+const btnPaper = document.querySelector("#paper");
+const btnScissors = document.querySelector("#scissors");
 
+btnRock.addEventListener('click', () => playRound('Rock', computerPlay()));
+btnPaper.addEventListener('click', () => playRound('Paper', computerPlay()));
+btnScissors.addEventListener('click', () => playRound('Scissors', computerPlay()));
+
+/*
 function game() {
     let playerMove;
     let computerMove;
@@ -24,7 +32,7 @@ function game() {
 
     winner(playerWins, computerWins);
 }
-
+*/
 
 function computerPlay() {
     let randomNum = Math.floor( Math.random() * 3 );
