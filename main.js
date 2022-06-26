@@ -1,3 +1,31 @@
+game();
+
+
+function game() {
+    let playerMove;
+    let computerMove;
+    let roundResult;
+    let playerWins = 0;
+    let computerWins = 0;
+
+    for (let i = 1; i < 6; i++) {
+        playerMove = playerPlay();
+        computerMove = computerPlay();
+        roundResult = playRound(playerMove, computerMove);
+
+        console.log(roundResult);
+
+        if (roundResult.includes("Win")) {
+            playerWins++;
+        } else if (roundResult.includes("Lose")) {
+            computerWins++;
+        }
+    }
+
+    winner(playerWins, computerWins);
+}
+
+
 function computerPlay() {
     let randomNum = Math.floor( Math.random() * 3 );
 
@@ -68,30 +96,3 @@ function winner(numPlayerWins, numComputerWins) {
         console.log(`You lose! ${numPlayerWins} vs ${numComputerWins}.`);
     }
 }
-
-
-function tournament() {
-    let playerMove;
-    let computerMove;
-    let roundResult;
-    let playerWins = 0;
-    let computerWins = 0;
-
-    for (let i = 1; i < 6; i++) {
-        playerMove = playerPlay();
-        computerMove = computerPlay();
-        roundResult = playRound(playerMove, computerMove);
-
-        console.log(roundResult);
-
-        if (roundResult.includes("Win")) {
-            playerWins++;
-        } else if (roundResult.includes("Lose")) {
-            computerWins++;
-        }
-    }
-
-    winner(playerWins, computerWins);
-}
-
-tournament();
