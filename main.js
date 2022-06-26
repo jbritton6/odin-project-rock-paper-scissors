@@ -69,17 +69,13 @@ function winner(numPlayerWins, numComputerWins) {
     }
 }
 
-console.log(winner(1, 1));
-console.log(winner(2, 1));
-console.log(winner(1, 2));
-
 
 function tournament() {
     let playerMove;
     let computerMove;
     let roundResult;
-    let playerWins;
-    let computerWins;
+    let playerWins = 0;
+    let computerWins = 0;
 
     for (let i = 1; i < 6; i++) {
         playerMove = playerPlay();
@@ -97,3 +93,5 @@ function tournament() {
 
     winner(playerWins, computerWins);
 }
+
+tournament();
