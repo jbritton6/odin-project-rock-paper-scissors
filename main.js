@@ -58,12 +58,42 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log(playRound("Rock", "Rock"));
-console.log(playRound("Rock", "Paper"));
-console.log(playRound("Rock", "Scissors"));
-console.log(playRound("Paper", "Rock"));
-console.log(playRound("Paper", "Paper"));
-console.log(playRound("Paper", "Scissors"));
-console.log(playRound("Scissors", "Rock"));
-console.log(playRound("Scissors", "Paper"));
-console.log(playRound("Scissors", "Scissors"));
+
+function winner(numPlayerWins, numComputerWins) {
+    if (numPlayerWins === numComputerWins) {
+        console.log("It's a tie!");
+    } else if (numPlayerWins >= numComputerWins) {
+        console.log(`You win! ${numPlayerWins} vs ${numComputerWins}.`);
+    } else {
+        console.log(`You lose! ${numPlayerWins} vs ${numComputerWins}.`);
+    }
+}
+
+console.log(winner(1, 1));
+console.log(winner(2, 1));
+console.log(winner(1, 2));
+
+
+function tournament() {
+    let playerMove;
+    let computerMove;
+    let roundResult;
+    let playerWins;
+    let computerWins;
+
+    for (let i = 1; i < 6; i++) {
+        playerMove = playerPlay();
+        computerMove = computerPlay();
+        roundResult = playRound(playerMove, computerMove);
+
+        console.log(roundResult);
+
+        if (roundResult.includes("Win")) {
+            playerWins++;
+        } else if (roundResult.includes("Lose")) {
+            computerWins++;
+        }
+    }
+
+    winner(playerWins, computerWins);
+}
