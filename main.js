@@ -8,6 +8,9 @@ btnRock.addEventListener('click', () => playRound('Rock', computerPlay()));
 btnPaper.addEventListener('click', () => playRound('Paper', computerPlay()));
 btnScissors.addEventListener('click', () => playRound('Scissors', computerPlay()));
 
+
+const result = document.querySelector("#result");
+
 /*
 function game() {
     let playerMove;
@@ -34,6 +37,7 @@ function game() {
 }
 */
 
+
 function computerPlay() {
     let randomNum = Math.floor( Math.random() * 3 );
 
@@ -46,7 +50,7 @@ function computerPlay() {
     }
 }
 
-
+/*
 function playerPlay() {
     let userResponse
     
@@ -72,25 +76,26 @@ function playerPlay() {
     }
 
 }
+*/
 
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        return "It's a tie!";
+        result.textContent = "It's a tie!";
     }
 
     if (playerSelection === "Rock" && computerSelection === "Paper") {
-        return "You Lose! Paper beats Rock!";
+        result.textContent = "You Lose! Paper beats Rock!";
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        return "You Win! Rock beats Scissors!";
+        result.textContent = "You Win! Rock beats Scissors!";
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        return "You Win! Paper beats Rock!";
+        result.textContent = "You Win! Paper beats Rock!";
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        return "You Lose! Scissors beats Paper!";
+        result.textContent = "You Lose! Scissors beats Paper!";
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        return "You Lose! Rock beats Scissors!";
+        result.textContent = "You Lose! Rock beats Scissors!";
     } else {
-        return "You Win! Scissors beats Paper!";
+        result.textContent = "You Win! Scissors beats Paper!";
     }
 }
 
